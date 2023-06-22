@@ -1,20 +1,32 @@
 arr = [1, 6, 7, 8, 9, 3, 5, 4, 2]
 arr_len = len(arr)
 
-def Split(arr) :
-    if len(arr) <= 1 :
-        print(arr)
-    
+
+def Split(arr):
+    if len(arr) <= 1:
+        return arr
     arr_len = len(arr)
-    left = arr[:arr_len // 2]
-    right = arr[arr_len // 2 :]
+    left = Split(arr[:arr_len // 2])
+    right = Split(arr[arr_len // 2:])
 
-    
-    
+    return Merge(left , right) 
+
+def Merge(left , right) :
+    List = []
+
+    while 1 :
+        if left[0] > right[0] :
+            List.append( right[0])
+            List.append( left[0])
 
 
-for text in arr:
-    print(text)
+
+Split(arr)
+
+
+
+# for text in arr:
+#     print(text)
 
 
 # for i in range(1, arr_len):
@@ -22,7 +34,7 @@ for text in arr:
 #         if arr[j] > arr[j -1] :
 #             break
 #         else :
-#             arr[j - 1], arr[j] = arr[j], arr[j - 1] 
+#             arr[j - 1], arr[j] = arr[j], arr[j - 1]
 
 # Len = len(arr)
 # for i in range(Len):
