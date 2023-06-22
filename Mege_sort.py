@@ -2,10 +2,15 @@ arr = [1, 6, 7, 8, 9, 3, 5, 4, 2]
 arr_len = len(arr)
 
 def Split(arr) :
-    if len(arr) == 1 :
-        return arr
-    Split(arr[:len(arr)])
-    Split(arr[len(arr) :])
+    if len(arr) <= 1 :
+        print(arr)
+    
+    arr_len = len(arr)
+    left = arr[:arr_len // 2]
+    right = arr[arr_len // 2 :]
+
+    
+    
 
 
 for text in arr:
