@@ -1,4 +1,4 @@
-arr = [1, 6, 7, 8, 9, 3, 5, 4, 2]
+arr = [7,9,2,1,4,6,5,3]
 arr_len = len(arr)
 
 
@@ -9,20 +9,40 @@ def Split(arr):
     left = Split(arr[:arr_len // 2])
     right = Split(arr[arr_len // 2:])
 
-    return Merge(left , right) 
-
-def Merge(left , right) :
-    List = []
-
-    while 1 :
-        if left[0] > right[0] :
-            List.append( right[0])
-            List.append( left[0])
+    return Merge(left, right)
 
 
+def Merge(left, right):  # 7 9 
+    arr_temp = []
 
-Split(arr)
+    i_1 , j_1 = 0 , 0 
 
+    while i_1 < len(left) and j_1 < len(right) :
+        if left[i_1] > right[j_1] :
+            arr_temp.append(left[i_1])
+            i_1 += 1
+        else :
+            arr_temp.append(right[j_1])
+            j_1 += 1
+
+    while i_1 < len(left) :
+        arr_temp.append(left[i_1])
+        i_1 += 1
+
+    while j_1 < len(right) :
+        arr_temp.append(right[j_1])    
+        j_1 += 1
+      
+             
+
+    return arr_temp
+
+
+   
+
+
+
+print(Split(arr))
 
 
 # for text in arr:
