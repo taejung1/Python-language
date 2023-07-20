@@ -1,4 +1,4 @@
-arr = [7,9,2,1,4,6,5,3]
+arr = [7,9,2,1,4,6,5,3,9,3]
 arr_len = len(arr)
 
 
@@ -18,12 +18,14 @@ def Merge(left, right):  # 7 9
     i_1 , j_1 = 0 , 0 
 
     while i_1 < len(left) and j_1 < len(right) :
-        if left[i_1] > right[j_1] :
+        if left[i_1] < right[j_1] :
             arr_temp.append(left[i_1])
             i_1 += 1
         else :
             arr_temp.append(right[j_1])
             j_1 += 1
+
+    arr_temp.extend(left)
 
     while i_1 < len(left) :
         arr_temp.append(left[i_1])
@@ -32,13 +34,12 @@ def Merge(left, right):  # 7 9
     while j_1 < len(right) :
         arr_temp.append(right[j_1])    
         j_1 += 1
+
+    
       
              
 
     return arr_temp
-
-
-   
 
 
 
