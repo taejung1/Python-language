@@ -1,7 +1,4 @@
-공, 바구니 = map(int, input().split(" "));
-
-
-
+n , n2 = map(int, input().split(" "));
 
 
 
