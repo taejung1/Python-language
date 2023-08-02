@@ -1,26 +1,3 @@
-n , n2 = map(int, input().split(" "));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-"""
 Input , Input_2 = map(int , input().split(" ")); # N K 
 String = list(input());
 
@@ -33,4 +10,4 @@ for i in range(Input) :
                 Temp+=1;
                 break;
 print(Temp)
-"""
+

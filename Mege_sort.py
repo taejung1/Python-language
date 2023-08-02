@@ -25,8 +25,6 @@ def Merge(left, right):  # 7 9
             arr_temp.append(right[j_1])
             j_1 += 1
 
-    arr_temp.extend(left)
-
     while i_1 < len(left) :
         arr_temp.append(left[i_1])
         i_1 += 1
@@ -35,13 +33,7 @@ def Merge(left, right):  # 7 9
         arr_temp.append(right[j_1])    
         j_1 += 1
 
-    
-      
-             
-
     return arr_temp
-
-
 
 print(Split(arr))
 
