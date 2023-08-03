@@ -1,37 +1,32 @@
 Arr = [[0 for j in range(25)] for i in range(25)]
+Next_Arr = [[0 for j in range(25)] for i in range(25)]
 
 for i in range(25):
     Temp = input().split(" ")
-    for j in range(24):
+    for j in range(25):
         Arr[i][j] = int(Temp[j])
 
+dx = [-1, -1, -1, 0, 0, 1, 1, 1]
+dy = [-1, 0, 1, -1, 1, -1, 0, 1]
 
-def find(X, Y):
-    number = 0
+for i in range(25):
+    for j in range(25):
+        All = 0
+        for k in range(8):
+            if 0 <= i + dx[k] <= 24 and 0 <= j + dy[k] <= 24:
+                if Arr[i+dx[k]][j+dy[k]] == 1:
+                    All += 1
 
-    for i in range(-1, 2):
-        for j in range(-1, 2):
-            if X + i >= 0 and Y + j >= 0 and X + i <= 24 and Y + j <= 24 and X != 0 and Y != 0:
-                if Arr[X+i][Y+j] == 1:
-                    number += 1
-    return number
+        for k in range(8):
+            if 0 <= i + dx[k] <= 24 and 0 <= j + dy[k] <= 24:
+                if Arr[i][j] == 0 and All == 3:
+                    Next_Arr[i][j] = 1
+                if Arr[i][j] == 1 and (All >= 4 or All <= 1):
+                    Next_Arr[i][j] = 0
+                if Arr[i][j] == 1 and (All == 2 or All == 3):
+                    Next_Arr[i][j] = 1
 
-
-for i in range(25) :
-    for j in range(25) :
-        call = find(i, j);
-        a = call;
-        d = 8 - call;
-
-        if Arr[i][j] == 0 and a == 3 :
-            Arr[i][j] = 1;
-        if Arr[i][j] == 0 and (a >= 4 or a <= 1) :
-            Arr[i][j] = 0;
-        if Arr[i][j] == 1 and (a ==2 or a==3) :
-            Arr[i][j] = 1;
-
-for i in range(25) :
-    for j in range(25) :
-        print("{} ".format(Arr[i][j]) ,end="")
+for i in range(25):
+    for j in range(25):
+        print("{} ".format(Next_Arr[i][j]) , end="")
     print()
-         
